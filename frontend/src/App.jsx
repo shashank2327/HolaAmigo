@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react'
 import Navbar from "./components/Navbar";
-import { Routes, Route, Navigate } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
-import { useAuthStore } from './store/useAuthStore';
+
+
+import { useAuthStore } from "./store/useAuthStore";
+import { useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+
 
 import {Loader} from "lucide-react";
+
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const {authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -40,6 +46,8 @@ const App = () => {
 
 
       </Routes>
+
+      <Toaster />
 
     </div>
   )
